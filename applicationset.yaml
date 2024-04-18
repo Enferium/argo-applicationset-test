@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: nodejs-app-set
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/Enferium/argo-applicationset-test.git
+      revision: HEAD
+      directories:
+      - path: deploy/*
+  template:
+    metadata:
+      name: '{{path.basename}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/Enferium/nodejs-k8s-argo-helm-helloworld.git
+        targetRevision: HEAD
+        path: '{{path.basename}}'
+        helm:
+          valueFiles:
+          - values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
