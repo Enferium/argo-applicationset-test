@@ -1,4 +1,1 @@
-env:
-  - name: MY_ENV_VAR
-    value: "my value"
 domainName: customer1.colibrilent.ovh
