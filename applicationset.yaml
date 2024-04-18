@@ -17,10 +17,11 @@ spec:
       source:
         repoURL: https://github.com/Enferium/nodejs-k8s-argo-helm-helloworld.git
         targetRevision: HEAD
-        path: '{{path.basename}}'
+        path: '.'
         helm:
           valueFiles:
           - values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'
+        autocreateNamespace: true
