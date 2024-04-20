@@ -15,12 +15,16 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/Enferium/nodejs-k8s-argo-helm-helloworld.git
+        repoURL: https://github.com/Enferium/argo-applicationset-test.git
         targetRevision: HEAD
-        path: '.'
+        path: './Chart'
         helm:
           valueFiles:
-          - values.yaml
+          - '{{path}}/values.yaml'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{path.basename}}'
+        # namespace: '{{path.basename}}'
+        namespace: default
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true
