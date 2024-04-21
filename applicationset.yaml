@@ -8,7 +8,7 @@ spec:
       repoURL: https://github.com/Enferium/argo-applicationset-test.git
       revision: HEAD
       directories:
-      - path: deploy/*
+      - path: Chart/deploy/*
   template:
     metadata:
       name: '{{path.basename}}'
