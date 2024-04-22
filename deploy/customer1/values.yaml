@@ -9,4 +9,4 @@ image:
 service:
   port: 3000
 ingress:
-  host: customer1.colibrilent.ovh
+  host: customer1.circle-crm-dev.ovh

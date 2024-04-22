@@ -7,4 +7,4 @@ image:
 service:
   port: 3000
 ingress:
-  host: customer2.colibrilent.ovh
+  host: customer2.circle-crm-dev.ovh
