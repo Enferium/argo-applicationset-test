@@ -19,6 +19,11 @@ spec:
         ports:
         - containerPort: {{ .Values.service.port }}
         env:
+          - name: username
+            valueFrom:
+              secretKeyRef:
+                name: "{{ .Values.app.name }}-secret"
+                key: username
         {{- range .Values.env }}
         - name: {{ .name }}
           value: {{ .value }}
