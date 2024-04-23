@@ -24,7 +24,7 @@ spec:
               secretKeyRef:
                 name: "{{ .Values.app.name }}-secret"
                 key: username
-          {{- range .Values.env }}
-          - name: {{ .name }}
-            value: {{ .value }}
-          {{- end }}
+          # {{- range .Values.env }}
+          # - name: {{ .name }}
+          #   value: {{ .value }}
+          # {{- end }}
